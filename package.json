@@ -1,6 +1,6 @@
 {
   "name": "appiumcore",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "appium robot core",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/zhs007/appiumcore#readme",
   "dependencies": {
-    "appium": "^1.15.0"
+    "wd": "^1.11.4"
   }
 }
