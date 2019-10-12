@@ -1,5 +1,25 @@
 # AppiumCore Development Log
 
+### 2019-10-12
+
+feizhu，机票页  
+主view的id是 ``com.taobao.trip:id/flight_home_template`` 。  
+下面3个部分，分别是买票区（``android.widget.RelativeLayout``）、广告（``android.widget.FrameLayout``）、特价机票（``android.widget.FrameLayout``）。  
+
+``com.taobao.trip:id/flight_home_search_base_card_layout``是买票区的主view。  
+``com.taobao.trip:id/flight_home_search_tablayout_container``这个是用来切换单程、往返、多程的，这几个都是 ``com.taobao.trip:id/tv_flight_search_tab_item_title``，只有``text``不一样。  
+``com.taobao.trip:id/flight_fl_container``这个是选择区。  
+``com.taobao.trip:id/flight_btn_search``这个是搜索按钮。  
+``com.taobao.trip:id/flight_search_city``这个是城市选择。  
+``com.taobao.trip:id/flight_date``这个是日期选择。  
+``com.taobao.trip:id/stv_more``这个是更多特价。  
+
+今天遇到一个比较奇怪的问题，就是有些时候，会找不到element，不是等待时间的问题，这块现在看来感觉还好，而是怎么都找不到。  
+原因未知。  
+``appium desktop``小bug也挺多的，会卡主，然后如果是weex的控件，好像会点不了，点击就卡主。  
+
+然后就是appium，自己有超时，如果一段时间没消息，就结束session了。
+
 ### 2019-10-11
 
 feizhu，首页主view的id是 ``com.taobao.trip:id/home_frg_refresh_view`` 。  
