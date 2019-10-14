@@ -36,8 +36,24 @@ async function start(cfg) {
       const tjjp = lsttjjp[0];
       await tjjp.click();
 
-      const lstclickable = await selector.findByClickable(client, true);
-      console.log(lstclickable.length);
+      // const lstclickable = await selector.findByClickable(client, true);
+      // console.log(lstclickable.length);
+      const lstview = await selector.findByID(
+          client,
+          'com.taobao.trip:id/weex_fragment_container'
+      );
+      if (lstview.length > 0) {
+        const rootview = lstview[0];
+        const lstclickable = await selector.findByClickable(rootview, true);
+        // const html = await rootview.getHTML();
+        // const lstwh = await selector.findByDesc(client, '武汉');
+        console.log(lstclickable.length);
+      }
+      // // const lstview = await selector.findByClass(client, 'android.view.View');
+      // for (let i = 0; i < lstview.length; ++i) {
+      //   // const ct = await lstview[i].getText();
+      //   // console.log(ct);
+      // }
     }
   }
 

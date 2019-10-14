@@ -13,7 +13,7 @@ async function findByID(obj, id) {
 /**
  * findByID
  * @param {object} obj - webdriverio element or client
- * @param {string} clickable - clickable
+ * @param {bool} clickable - clickable
  */
 async function findByClickable(obj, clickable) {
   const selector = 'new UiSelector().clickable(' + clickable + ')';
@@ -27,6 +27,16 @@ async function findByClickable(obj, clickable) {
  */
 async function findByClass(obj, className) {
   const selector = 'new UiSelector().className("' + className + '")';
+  return await obj.$$(`android=${selector}`);
+}
+
+/**
+ * findByDesc
+ * @param {object} obj - webdriverio element or client
+ * @param {string} desc - description
+ */
+async function findByDesc(obj, desc) {
+  const selector = 'new UiSelector().description("' + desc + '")';
   return await obj.$$(`android=${selector}`);
 }
 
@@ -71,6 +81,7 @@ async function waitForID(obj, id, timeout) {
 
 exports.findByID = findByID;
 exports.findByClass = findByClass;
+exports.findByDesc = findByDesc;
 exports.findByClickable = findByClickable;
 
 exports.findWithText = findWithText;

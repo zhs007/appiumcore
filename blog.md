@@ -1,5 +1,22 @@
 # AppiumCore Development Log
 
+### 2019-10-14
+
+``appium desktop``容易卡主，网易的``airtest``感觉好多了。  
+其实从数据分析来看，应该都能看明白。  
+暂时用``airtest``来可视化分析，自动化还是用``appium``吧。
+
+feizhu，特价机票页，看起来应该是weex的。  
+``com.taobao.trip:id/weex_render_view``这个是主view。  
+这个往下一直找到一个``android.widget.FrameLayout``有3个子节点的。  
+第一个子节点就是搜索区，这里看起来是第一个子节点的第3个子节点。  
+``android.view.View``几个主要的选项都是这个类型的。
+
+appium的代码写起来很纠结，大概理解它为啥写成这样了，google的uiautomator其实是在手机端运行的，所以它可以很方便的父子节点交互，而appium为了考虑兼容性，大量的协议通过selector来得到elementid，然后操作，复杂点的属性操作，都要再通过手机端的app转一次。  
+这样的结构其实我也能接受，只要能给我个接口，把 dumpWindowHierarchy 接口数据给我，我能自己解析出elementid，剩下的事就全省了，但appium竟然没这个接口，或者说现在的几个client都没这个接口，好像desktop能拿到这个数据啊。
+
+其实还有个更省事的办法，干脆我直接用java写在手机上的app，通过uiautomator控制app，然后作为client，直接和服务器交互，这样可能更省事一些。
+
 ### 2019-10-12
 
 feizhu，机票页  
